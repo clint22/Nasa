@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -9,36 +11,58 @@ android {
 
     defaultConfig {
         applicationId "com.clint.nasa"
-        minSdk 24
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
-
+        minSdk(ConfigData.minimumSdk)
+        targetSdk(ConfigData.targetSdk)
+        versionCode(ConfigData.versionCode)
+        versionName(ConfigData.versionName)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
+
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            }
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        kotlinOptions {
+            jvmTarget = '1.8'
+        }
+        buildFeatures {
+            viewBinding true
+        }
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation(Deps.coreKtx)
+    implementation(Deps.appCompat)
+    implementation(Deps.material)
+    implementation(Deps.constraintLayout)
+    implementation(Deps.hiltAndroid)
+    implementation(Deps.retrofit)
+    implementation(Deps.coreSplashScreen)
+    implementation(Deps.loggingInterceptor)
+    implementation(Deps.gsonConverter)
+    implementation(Deps.viewModelLifeCycle)
+    implementation(Deps.activityKtx)
+    implementation(Deps.glide)
+    implementation(Deps.room)
+    implementation(Deps.jodaTime)
+    implementation(Deps.lottie)
+    kapt(Deps.roomCompiler)
+    annotationProcessor(Deps.glideCompiler)
+    kapt(Deps.hiltCompiler)
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.junitAndroid)
+    androidTestImplementation(Deps.espressoAndroid)
 }
