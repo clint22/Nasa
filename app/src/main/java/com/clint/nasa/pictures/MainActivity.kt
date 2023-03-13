@@ -8,6 +8,7 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.clint.nasa.R
+import com.clint.nasa.core.Constants.SPLASH_SCREEN_DELAY
 import com.clint.nasa.core.exception.Failure
 import com.clint.nasa.core.extensions.failure
 import com.clint.nasa.core.extensions.observe
@@ -17,14 +18,13 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private var keepSplashOnScreen = true
-    private val splashScreenDelay = 2000L
     private val picturesViewModel: PicturesViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen().setKeepOnScreenCondition { keepSplashOnScreen }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Handler(Looper.getMainLooper()).postDelayed(
-            { keepSplashOnScreen = false }, splashScreenDelay
+            { keepSplashOnScreen = false }, SPLASH_SCREEN_DELAY
         )
         loadPictures()
         with(picturesViewModel) {
