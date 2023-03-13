@@ -1,15 +1,15 @@
 package com.clint.nasa.core.platform
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.clint.nasa.core.exception.Failure
-import kotlinx.coroutines.flow.MutableSharedFlow
 
 abstract class BaseViewModel : ViewModel() {
 
-    private val _failure: MutableSharedFlow<Failure> = MutableSharedFlow()
-    val failure: MutableSharedFlow<Failure> = _failure
+    private val _failure: MutableLiveData<Failure> = MutableLiveData()
+    val failure = _failure
 
-    protected suspend fun handleFailure(failure: Failure) {
-        _failure.emit(failure)
+    protected fun handleFailure(failure: Failure) {
+        _failure.value = failure
     }
 }
