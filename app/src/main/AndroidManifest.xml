@@ -16,7 +16,10 @@
         android:theme="@style/Theme.AppSplash"
         tools:targetApi="31">
         <activity
-            android:name=".pictures.MainActivity"
+            android:name=".pictures.PicturesDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pictures.PicturesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

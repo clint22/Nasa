@@ -24,4 +24,6 @@ object Deps {
     const val jodaTime = "net.danlew:android.joda:${Versions.jodaTime}"
     const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
     const val androidVeil = "com.github.skydoves:androidveil:${Versions.androidVeil}"
+    const val transformationLayout =
+        "com.github.skydoves:transformationlayout:${Versions.transformationLayout}"
 }

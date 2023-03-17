@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -60,6 +61,7 @@ dependencies {
     implementation(Deps.jodaTime)
     implementation(Deps.lottie)
     implementation(Deps.androidVeil)
+    implementation(Deps.transformationLayout)
     kapt(Deps.roomCompiler)
     annotationProcessor(Deps.glideCompiler)
     kapt(Deps.hiltCompiler)

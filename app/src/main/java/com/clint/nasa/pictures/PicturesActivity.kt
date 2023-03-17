@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class PicturesActivity : AppCompatActivity() {
     @Inject
     lateinit var picturesAdapter: PicturesAdapter
     private var keepSplashOnScreen = true
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerViewCars.run {
             setVeilLayout(R.layout.row_pictures)
             setAdapter(picturesAdapter)
-            setLayoutManager(GridLayoutManager(this@MainActivity, GRID_SPAN_COUNT))
+            setLayoutManager(GridLayoutManager(this@PicturesActivity, GRID_SPAN_COUNT))
             addVeiledItems(VEILED_ITEMS)
         }
     }
