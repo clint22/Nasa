@@ -16,4 +16,5 @@ object Versions {
     const val room = "2.5.0"
     const val jodaTime = "2.12.1.1"
     const val lottie = "5.2.0"
+    const val androidVeil = "1.1.3"
 }

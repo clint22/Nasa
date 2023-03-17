@@ -23,4 +23,5 @@ object Deps {
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
     const val jodaTime = "net.danlew:android.joda:${Versions.jodaTime}"
     const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
+    const val androidVeil = "com.github.skydoves:androidveil:${Versions.androidVeil}"
 }
