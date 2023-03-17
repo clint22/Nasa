@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.clint.nasa.R
+import com.clint.nasa.core.Constants.GRID_SPAN_COUNT
 import com.clint.nasa.core.Constants.SPLASH_SCREEN_DELAY
+import com.clint.nasa.core.Constants.VEILED_ITEMS
 import com.clint.nasa.core.exception.Failure
 import com.clint.nasa.core.extensions.failure
 import com.clint.nasa.core.extensions.observe
@@ -47,13 +47,9 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerViewCars.run {
             setVeilLayout(R.layout.row_pictures)
             setAdapter(picturesAdapter)
-            setLayoutManager(GridLayoutManager(this@MainActivity, 2))
-            addVeiledItems(15)
+            setLayoutManager(GridLayoutManager(this@MainActivity, GRID_SPAN_COUNT))
+            addVeiledItems(VEILED_ITEMS)
         }
-        /*binding.recyclerViewCars.setAdapter(picturesAdapter)
-        binding.recyclerViewCars.setLayoutManager(GridLayoutManager(this, 2))
-        binding.recyclerViewCars.addVeiledItems(15)
-        binding.recyclerViewCars.veil()*/
     }
 
     private fun renderFailure(failure: Failure?) {
@@ -62,8 +58,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun renderPictures(pictures: List<Pictures>?) {
         Log.e("nasa_pictures", Gson().toJson(pictures))
-//        binding.progressPictures.visibility = View.GONE
-//        binding.recyclerViewCars.visibility = View.VISIBLE
         picturesAdapter.picturesList = pictures.orEmpty()
         binding.recyclerViewCars.unVeil()
     }
