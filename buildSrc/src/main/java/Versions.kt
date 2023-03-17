@@ -17,4 +17,5 @@ object Versions {
     const val jodaTime = "2.12.1.1"
     const val lottie = "5.2.0"
     const val androidVeil = "1.1.3"
+    const val transformationLayout = "1.1.2"
 }
