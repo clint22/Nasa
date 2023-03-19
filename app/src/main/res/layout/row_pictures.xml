@@ -6,7 +6,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:background="@color/black_2"
+    android:background="@color/main_bg"
     app:transformation_duration="800"
     app:transformation_pathMode="arc">
 

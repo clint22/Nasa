@@ -5,7 +5,7 @@
     android:id="@+id/item_transformation_layout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/black_2"
+    android:background="@color/main_bg"
     android:orientation="vertical"
     app:transformation_duration="800"
     app:transformation_pathMode="arc">
