@@ -9,4 +9,5 @@ object Constants {
     const val ITEM_TRANSITION_MIN_SCALE = 0.8f
     const val INTENT_KEY_PICTURE_EXTRA_NAME = "pictureExtraName"
     const val INTENT_KEY_PICTURE_EXTRA_POSITION_NAME = "picturePositionExtraName"
+    const val INTENT_KEY_DESCRIPTION_DETAIL_EXTRA_NAME = "pictureDescriptionDetailExtraName"
 }

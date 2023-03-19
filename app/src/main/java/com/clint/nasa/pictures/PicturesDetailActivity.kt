@@ -7,7 +7,10 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.clint.nasa.R
+import com.clint.nasa.core.Constants.INTENT_KEY_DESCRIPTION_DETAIL_EXTRA_NAME
 import com.clint.nasa.core.Constants.INTENT_KEY_PICTURE_EXTRA_NAME
 import com.clint.nasa.core.Constants.INTENT_KEY_PICTURE_EXTRA_POSITION_NAME
 import com.clint.nasa.core.Constants.ITEM_TRANSITION_MIN_SCALE
@@ -36,6 +39,7 @@ class PicturesDetailActivity : AppCompatActivity(),
     private lateinit var infiniteAdapter: InfiniteScrollAdapter<*>
     private val picturesViewModel: PicturesViewModel by viewModels()
     private var pictures: List<Pictures>? = null
+    private var picture: Pictures? = null
     private var loadedFirstTime = true
     private var picturePosition: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,9 +54,21 @@ class PicturesDetailActivity : AppCompatActivity(),
         setContentView(binding.root)
         initialiseView()
         loadPictures()
+        setClickListeners()
         with(picturesViewModel) {
             observe(pictures, ::renderPictures)
             failure(failure, ::renderFailure)
+        }
+    }
+
+    private fun setClickListeners() {
+        binding.textViewReadMore.setOnClickListener {
+            val picturesDescriptionFragment = PicturesDescriptionFragment()
+            val bundle = Bundle()
+            bundle.putString(INTENT_KEY_DESCRIPTION_DETAIL_EXTRA_NAME, picture?.explanation)
+            picturesDescriptionFragment.arguments = bundle
+            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+            picturesDescriptionFragment.show(ft, "dialog")
         }
     }
 
@@ -87,7 +103,10 @@ class PicturesDetailActivity : AppCompatActivity(),
             picturePosition = it
         }
         intent.parcelable<Pictures>(pictureExtraName)?.let {
-            setupDetailView(it.url, it.title, it.explanation)
+            picture = it
+            picture?.apply {
+                setupDetailView(url, title, explanation)
+            }
         }
     }
 
@@ -122,12 +141,14 @@ class PicturesDetailActivity : AppCompatActivity(),
     ) {
         if (!loadedFirstTime) {
             val positionInDataSet = infiniteAdapter.getRealPosition(adapterPosition)
-            val picture = pictures?.get(positionInDataSet)
-            setupDetailView(
-                url = picture?.url,
-                title = picture?.title,
-                explanation = picture?.explanation
-            )
+            picture = pictures?.get(positionInDataSet)
+            picture?.apply {
+                setupDetailView(
+                    url = url,
+                    title = title,
+                    explanation = explanation
+                )
+            }
         }
         loadedFirstTime = false
     }
