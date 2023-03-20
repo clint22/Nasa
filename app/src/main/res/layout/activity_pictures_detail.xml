@@ -103,6 +103,21 @@
         app:layout_constraintTop_toBottomOf="@+id/guideline_3" />
 
     <TextView
+        android:id="@+id/textViewRelatedError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/silver"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="14sp"
+        android:fontFamily="@font/poppins_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/related_articles_error"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_3" />
+
+    <TextView
         android:id="@+id/textViewRelated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -128,10 +143,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewRelated" />
 
     <ImageView
-        android:padding="10dp"
         android:id="@+id/imageViewBackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/left_arrow" />

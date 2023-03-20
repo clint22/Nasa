@@ -3,6 +3,7 @@ package com.clint.nasa.features.pictures
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -14,6 +15,7 @@ import com.clint.nasa.core.Constants.VEILED_ITEMS
 import com.clint.nasa.core.exception.Failure
 import com.clint.nasa.core.extensions.failure
 import com.clint.nasa.core.extensions.observe
+import com.clint.nasa.core.extensions.showToast
 import com.clint.nasa.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -42,7 +44,7 @@ class PicturesActivity : AppCompatActivity() {
     }
 
     private fun initialiseView() {
-        binding.recyclerViewCars.run {
+        binding.recyclerViewPictures.run {
             setVeilLayout(R.layout.row_pictures)
             setAdapter(picturesAdapter)
             setLayoutManager(GridLayoutManager(this@PicturesActivity, GRID_SPAN_COUNT))
@@ -53,20 +55,28 @@ class PicturesActivity : AppCompatActivity() {
     private fun renderFailure(failure: Failure?) {
         when (failure) {
             Failure.NetworkConnection -> {
-
+                showToast(getString(R.string.network_error))
             }
             Failure.ServerError -> {
-
+                showToast(getString(R.string.server_error))
             }
             else -> {
-
+                showToast(getString(R.string.some_error))
             }
+        }
+        binding.apply {
+            lottieError.visibility = View.VISIBLE
+            recyclerViewPictures.visibility = View.GONE
         }
     }
 
     private fun renderPictures(pictures: List<Pictures>?) {
         picturesAdapter.picturesList = pictures.orEmpty()
-        binding.recyclerViewCars.unVeil()
+        binding.apply {
+            recyclerViewPictures.visibility = View.VISIBLE
+            lottieError.visibility = View.GONE
+            recyclerViewPictures.unVeil()
+        }
     }
 
     private fun loadPictures() {

@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.skydoves.androidveil.VeilRecyclerFrameView
-        android:id="@+id/recyclerViewCars"
+        android:id="@+id/recyclerViewPictures"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,5 +32,18 @@
         app:veilFrame_radius="4dp"
         app:veilFrame_shimmerEnable="true"
         app:veilFrame_veiled="true" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="server_error.json"
+        app:lottie_loop="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
