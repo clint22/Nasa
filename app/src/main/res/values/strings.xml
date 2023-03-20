@@ -4,4 +4,9 @@
     <string name="dsv_ex_msg_adapter_wrong_recycler">InfiniteScrollAdapter is supposed to work only with DiscreteScrollView</string>
     <string name="read_more"><u>Read more</u></string>
     <string name="related">Related</string>
+    <string name="network_error">Sorry some network error occurred</string>
+    <string name="server_error">Sorry some server error occurred</string>
+    <string name="some_error">Sorry some error occurred</string>
+    <string name="retry">Retry</string>
+    <string name="related_articles_error">Sorry, Related articles are not available now.</string>
 </resources>

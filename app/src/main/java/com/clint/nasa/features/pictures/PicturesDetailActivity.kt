@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -20,10 +19,7 @@ import com.clint.nasa.core.discriteScrollView.DiscreteScrollView
 import com.clint.nasa.core.discriteScrollView.InfiniteScrollAdapter
 import com.clint.nasa.core.discriteScrollView.transform.ScaleTransformer
 import com.clint.nasa.core.exception.Failure
-import com.clint.nasa.core.extensions.failure
-import com.clint.nasa.core.extensions.loadFromUrl
-import com.clint.nasa.core.extensions.observe
-import com.clint.nasa.core.extensions.parcelable
+import com.clint.nasa.core.extensions.*
 import com.clint.nasa.databinding.ActivityPicturesDetailBinding
 import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
@@ -76,7 +72,21 @@ class PicturesDetailActivity : AppCompatActivity(),
     }
 
     private fun renderFailure(failure: Failure?) {
-
+        binding.apply {
+            progressDiscreetScroll.visibility = View.GONE
+            textViewRelatedError.visibility = View.VISIBLE
+        }
+        when (failure) {
+            Failure.NetworkConnection -> {
+                showToast(getString(R.string.network_error))
+            }
+            Failure.ServerError -> {
+                showToast(getString(R.string.server_error))
+            }
+            else -> {
+                showToast(getString(R.string.some_error))
+            }
+        }
     }
 
     private fun renderPictures(pictures: List<Pictures>?) {
@@ -139,17 +149,14 @@ class PicturesDetailActivity : AppCompatActivity(),
     }
 
     override fun onCurrentItemChanged(
-        viewHolder: PicturesAdapterScroll.ViewHolder?,
-        adapterPosition: Int
+        viewHolder: PicturesAdapterScroll.ViewHolder?, adapterPosition: Int
     ) {
         if (!loadedFirstTime) {
             val positionInDataSet = infiniteAdapter.getRealPosition(adapterPosition)
             picture = pictures?.get(positionInDataSet)
             picture?.apply {
                 setupDetailView(
-                    url = url,
-                    title = title,
-                    explanation = explanation
+                    url = url, title = title, explanation = explanation
                 )
             }
         }
