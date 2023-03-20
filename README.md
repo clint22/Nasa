@@ -1,5 +1,9 @@
 # Nasa
 Nasa app demonstrates modern android development using Hilt, Coroutines, View Model based on [clean architecture](https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/)
+
+![Preview Image](https://github.com/clint22/Nasa/blob/main/app/src/main/java/com/clint/nasa/preview/nasa_app_banner.png)
+
+
 # Tech stack and open source libraries 
 * Kotlin based, Coroutines + LiveData for asynchronous
 * [Android veil](https://github.com/skydoves/AndroidVeil), for loading skeleton and shimmer effects
