@@ -1,8 +1,8 @@
 package com.clint.nasa.core.di
 
 import com.clint.nasa.BuildConfig
-import com.clint.nasa.pictures.NetWork
-import com.clint.nasa.pictures.PicturesRepository
+import com.clint.nasa.features.pictures.NetWork
+import com.clint.nasa.features.pictures.PicturesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

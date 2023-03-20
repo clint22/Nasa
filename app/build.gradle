@@ -66,6 +66,9 @@ dependencies {
     annotationProcessor(Deps.glideCompiler)
     kapt(Deps.hiltCompiler)
     testImplementation(Deps.junit)
+    testImplementation(Deps.mockK)
+    testImplementation(Deps.robolectric)
+    testImplementation(Deps.kluent)
     androidTestImplementation(Deps.junitAndroid)
     androidTestImplementation(Deps.espressoAndroid)
 }

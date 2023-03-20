@@ -1,4 +1,4 @@
-package com.clint.nasa.pictures
+package com.clint.nasa.features.pictures
 
 import android.os.Bundle
 import android.view.LayoutInflater

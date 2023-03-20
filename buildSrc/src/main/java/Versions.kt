@@ -18,4 +18,7 @@ object Versions {
     const val lottie = "5.2.0"
     const val androidVeil = "1.1.3"
     const val transformationLayout = "1.1.2"
+    const val mockK = "1.13.4"
+    const val robolectric = "4.10-alpha-1"
+    const val kluent = "1.72"
 }
