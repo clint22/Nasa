@@ -1,4 +1,4 @@
-package com.clint.nasa.pictures
+package com.clint.nasa.features.pictures
 
 import android.content.Context
 import android.content.Intent

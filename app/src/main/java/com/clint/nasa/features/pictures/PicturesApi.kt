@@ -1,4 +1,4 @@
-package com.clint.nasa.pictures
+package com.clint.nasa.features.pictures
 
 import retrofit2.Call
 import retrofit2.http.GET

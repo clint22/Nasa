@@ -1,4 +1,4 @@
-package com.clint.nasa.pictures
+package com.clint.nasa.features.pictures
 
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -13,5 +13,4 @@ class PictureService
     override fun getPictures(): Call<List<Pictures>> {
         return picturesApi.getPictures()
     }
-
 }

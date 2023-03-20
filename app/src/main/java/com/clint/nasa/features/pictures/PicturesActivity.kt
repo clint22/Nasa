@@ -1,9 +1,8 @@
-package com.clint.nasa.pictures
+package com.clint.nasa.features.pictures
 
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -16,7 +15,6 @@ import com.clint.nasa.core.exception.Failure
 import com.clint.nasa.core.extensions.failure
 import com.clint.nasa.core.extensions.observe
 import com.clint.nasa.databinding.ActivityMainBinding
-import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -53,11 +51,20 @@ class PicturesActivity : AppCompatActivity() {
     }
 
     private fun renderFailure(failure: Failure?) {
-        Log.e("failure_occurred", "occurred")
+        when (failure) {
+            Failure.NetworkConnection -> {
+
+            }
+            Failure.ServerError -> {
+
+            }
+            else -> {
+
+            }
+        }
     }
 
     private fun renderPictures(pictures: List<Pictures>?) {
-        Log.e("nasa_pictures", Gson().toJson(pictures))
         picturesAdapter.picturesList = pictures.orEmpty()
         binding.recyclerViewCars.unVeil()
     }

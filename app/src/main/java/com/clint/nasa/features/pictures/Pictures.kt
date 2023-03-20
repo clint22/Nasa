@@ -1,4 +1,4 @@
-package com.clint.nasa.pictures
+package com.clint.nasa.features.pictures
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
@@ -15,4 +15,8 @@ data class Pictures(
     @SerializedName("title") var title: String? = null,
     @SerializedName("url") var url: String? = null
 ) : Parcelable {
+
+    companion object {
+        val empty = Pictures()
+    }
 }

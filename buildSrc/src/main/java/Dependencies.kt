@@ -26,4 +26,7 @@ object Deps {
     const val androidVeil = "com.github.skydoves:androidveil:${Versions.androidVeil}"
     const val transformationLayout =
         "com.github.skydoves:transformationlayout:${Versions.transformationLayout}"
+    const val mockK = "io.mockk:mockk:${Versions.mockK}"
+    const val robolectric = "org.robolectric:robolectric:${Versions.robolectric}"
+    const val kluent = "org.amshove.kluent:kluent-android:${Versions.kluent}"
 }

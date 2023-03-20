@@ -1,4 +1,4 @@
-package com.clint.nasa.pictures
+package com.clint.nasa.features.pictures
 
 import com.clint.nasa.core.exception.Failure
 import com.clint.nasa.core.functional.Either

@@ -1,4 +1,4 @@
-package com.clint.nasa.pictures
+package com.clint.nasa.features.pictures
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope

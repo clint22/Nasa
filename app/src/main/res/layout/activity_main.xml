@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_bg"
-    tools:context=".pictures.PicturesActivity">
+    tools:context=".features.pictures.PicturesActivity">
 
     <ProgressBar
         android:id="@+id/progressPictures"
