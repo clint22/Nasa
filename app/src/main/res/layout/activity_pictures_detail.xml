@@ -49,46 +49,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline">
 
-        <TextView
+        <com.clint.nasa.core.view.text.NasaTextView
             android:id="@+id/detailTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_medium"
             android:maxLines="1"
             android:paddingStart="10dp"
             android:paddingTop="20dp"
             android:paddingEnd="10dp"
             android:textColor="@color/white"
-            android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
+            app:typography="h1"
             tools:text="Spiral Galaxy NGC 6744" />
 
-        <TextView
+        <com.clint.nasa.core.view.text.NasaTextView
             android:id="@+id/detailedDescriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:fontFamily="@font/poppins_extra_light"
             android:maxLines="6"
             android:paddingStart="10dp"
             android:paddingTop="5dp"
             android:paddingEnd="10dp"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            app:typography="body"
             tools:text="Why does this galaxy have a ring of bright blue stars?  Beautiful island universe Messier 94 lies a mere 15 million light-years distant in the northern constellation of the Hunting Dogs (Canes Venatici). A popular target for Earth-based astronomers, the face-on spiral galaxy is about 30,000 light-years across" />
 
-        <TextView
+        <com.clint.nasa.core.view.text.NasaTextView
             android:id="@+id/textViewReadMore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:fontFamily="@font/poppins_medium"
             android:padding="10dp"
             android:text="@string/read_more"
             android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:typography="h2" />
 
     </LinearLayout>
 
@@ -102,35 +100,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline_3" />
 
-    <TextView
+    <com.clint.nasa.core.view.text.NasaTextView
         android:id="@+id/textViewRelatedError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/silver"
         android:gravity="center"
+        android:text="@string/related_articles_error"
+        android:textColor="@color/silver"
         android:visibility="gone"
-        android:textSize="14sp"
-        android:fontFamily="@font/poppins_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/related_articles_error"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_3" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline_3"
+        app:typography="h3" />
 
-    <TextView
+    <com.clint.nasa.core.view.text.NasaTextView
         android:id="@+id/textViewRelated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:fontFamily="@font/poppins_medium"
         android:paddingStart="10dp"
         android:paddingTop="10dp"
         android:paddingEnd="10dp"
         android:text="@string/related"
         android:textColor="@color/white"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline_3" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_3"
+        app:typography="h2" />
 
     <com.clint.nasa.core.discriteScrollView.DiscreteScrollView
         android:id="@+id/pictures_scroll_view"

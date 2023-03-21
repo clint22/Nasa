@@ -28,19 +28,18 @@
             android:src="@drawable/hubble_demo"
             android:visibility="visible" />
 
-        <TextView
+        <com.clint.nasa.core.view.text.NasaTextView
             android:id="@+id/textViewDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@drawable/dark_gradient"
             android:ellipsize="end"
-            android:fontFamily="@font/poppins_light"
             android:gravity="center"
+            app:typography="h4"
             android:maxLines="1"
             android:padding="15dp"
             android:textColor="@color/white"
-            android:textSize="12sp"
             android:visibility="visible"
             tools:text="Starburst Galaxy M94 from Hubble" />
 

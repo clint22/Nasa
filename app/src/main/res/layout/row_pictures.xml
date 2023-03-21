@@ -35,38 +35,22 @@
                 android:src="@drawable/hubble_demo"
                 android:visibility="visible" />
 
-            <TextView
+            <com.clint.nasa.core.view.text.NasaTextView
                 android:id="@+id/textViewDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:background="@drawable/dark_gradient"
                 android:ellipsize="end"
-                android:fontFamily="@font/poppins_light"
                 android:gravity="center"
                 android:maxLines="1"
                 android:padding="15dp"
                 android:textColor="@color/white"
-                android:textSize="12sp"
                 android:visibility="visible"
+                app:typography="h4"
                 tools:text="Starburst Galaxy M94 from Hubble" />
 
         </androidx.cardview.widget.CardView>
-
-
-        <TextView
-            android:id="@+id/textViewDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:padding="2dp"
-            android:textColor="@color/white"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textViewDescription"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
-            tools:text="Feb 13, 2020" />
 
     </LinearLayout>
 </com.skydoves.transformationlayout.TransformationLayout>

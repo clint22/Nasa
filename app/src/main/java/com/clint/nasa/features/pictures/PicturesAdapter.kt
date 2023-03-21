@@ -21,7 +21,6 @@ class PicturesAdapter @Inject constructor() : RecyclerView.Adapter<PicturesAdapt
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nasaImageView: ImageView = itemView.findViewById(R.id.nasaImageView)
         val textViewDescription: TextView = itemView.findViewById(R.id.textViewDescription)
-        val textViewDate: TextView = itemView.findViewById(R.id.textViewDate)
         val itemTransformationLayout: TransformationLayout =
             itemView.findViewById(R.id.item_transformation_layout)
     }
@@ -36,7 +35,6 @@ class PicturesAdapter @Inject constructor() : RecyclerView.Adapter<PicturesAdapt
         holder.run {
             nasaImageView.loadFromUrl(pictures.url)
             textViewDescription.text = pictures.title
-            textViewDate.text = pictures.date
             itemView.setOnClickListener {
                 PicturesDetailActivity.startActivity(
                     itemView.context,

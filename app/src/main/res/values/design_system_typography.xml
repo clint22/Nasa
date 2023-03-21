@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="NewApi">
+
+    <style name="Typography" />
+
+    <style name="Typography.Nasa">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Typography.Nasa.H1">
+        <item name="android:textSize">22sp</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="Typography.Nasa.H2">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="Typography.Nasa.H3">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/poppins_light</item>
+    </style>
+
+    <style name="Typography.Nasa.H4">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/poppins_light</item>
+    </style>
+
+    <style name="Typography.Nasa.Body">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/poppins_extra_light</item>
+    </style>
+
+</resources>

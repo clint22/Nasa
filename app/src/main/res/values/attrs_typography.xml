@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NasaTextView">
+        <attr name="typography" format="enum">
+            <enum name="h1" value="0" />
+            <enum name="h2" value="1" />
+            <enum name="h3" value="2" />
+            <enum name="h4" value="3" />
+            <enum name="body" value="4" />
+        </attr>
+    </declare-styleable>
+</resources>
